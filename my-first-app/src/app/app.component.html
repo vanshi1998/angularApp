@@ -1,0 +1,40 @@
+<h2> This is Jumbotron Component</h2>
+<!--<my-msg></my-msg>-->
+<!--<div class="container">
+  <div class="row">
+    <div class="col-4">
+<app-jumbotron title="Java" summary="it is most popular programming language"></app-jumbotron>
+</div>
+<div class="col-4">
+<app-jumbotron title="Javascript" summary="it is most popular scripting language"></app-jumbotron>
+</div>
+<div class="col-4">
+<app-jumbotron title="HTML" summary="used for structuring of web pages"></app-jumbotron>
+</div>
+  </div>
+</div>-->
+
+
+<!--<app-jumbotron title="Css" summary="Used for styling purposes"></app-jumbotron>
+<app-jumbotron title="C++" summary="it used OOPS concepts"></app-jumbotron>
+-->
+
+
+<app-jumbotron  *ngFor="let course of courses" title="{{course.name}}" summary="{{course.salary}} " id="{{course.id}}">
+</app-jumbotron>
+  
+ 
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">name</th>
+      <th scope="col">salary</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<app-emptable  *ngFor="let course of courses" name="{{course.name}}" salary="{{course.salary}}" id="{{course.id}}">
+</app-emptable>
+ </tbody>
+</table>
