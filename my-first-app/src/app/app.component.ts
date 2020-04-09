@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { CourseService } from './services/course.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { HttpClient } from "@angular/common/http";
 export class AppComponent implements OnInit{
 
 
-  constructor(public http:HttpClient)
+  constructor(public courseService:CourseService)
   {
 
   }
@@ -17,7 +18,8 @@ export class AppComponent implements OnInit{
   ngOnInit()
   {
     //initialization code here
-    this.http.get('http://localhost:8000/api/employee').toPromise()
+    //this.http.get('http://localhost:8000/api/employee').toPromise()
+    this.courseService.fetchAllCourses()
     .then((res: any) =>{
       console.log(res);
       this.courses=res;

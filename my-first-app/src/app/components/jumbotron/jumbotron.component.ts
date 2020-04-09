@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { CourseService } from 'src/app/services/course.service';
 
 @Component({
   selector: 'app-jumbotron',
@@ -8,7 +9,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class JumbotronComponent implements OnInit {
 
-  constructor(public http:HttpClient) { }
+  constructor(public courseService:CourseService) { }
 
   /*heading:string='Java';
   summary:string='Its is mostly used programming language';*/
@@ -27,7 +28,8 @@ export class JumbotronComponent implements OnInit {
   deleteJumbo(id)
   {
     console.log("Deleting the jumbotron with id",id);
-    this.http.delete('http://localhost:8000/api/employee/' + id).toPromise()
+    //this.http.delete('http://localhost:8000/api/employee/' + id).toPromise()
+    this.courseService.deleteCourse(id)
     .then(res=>console.log(res))
   }
 
