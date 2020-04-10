@@ -46,7 +46,7 @@
   </thead>
   <tbody>
 
-<app-emptable  *ngFor="let course of courses" name="{{course.name}}" salary="{{course.salary}}" id="{{course.id}}">
+<app-emptable  *ngFor="let course of courses |search:name.value" name="{{course.name}}" salary="{{course.salary}}" id="{{course.id}}">
 </app-emptable>
  </tbody>
 </table>
