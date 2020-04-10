@@ -19,10 +19,22 @@
 <app-jumbotron title="C++" summary="it used OOPS concepts"></app-jumbotron>
 -->
 
-
-<app-jumbotron  *ngFor="let course of courses" title="{{course.name}}" summary="{{course.salary}} " id="{{course.id}}">
+<div class="container">
+  <div class="row">
+     <div class="input-group mb-3">
+      <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">Sentence Case Pipe </span>
+    </div>
+    <input type="text" #sent (keyup)="0" class="form-control" placeholder="Enter a sentence here" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <div>{{sent.value|sentenceCasePipe}}</div>
+    <div>
+      <input type="text" #name (keyup)="0" class="form-control" placeholder="Enter a name here" aria-label="Username" aria-describedby="basic-addon1">
+    </div> 
+    <br>
+<app-jumbotron  *ngFor="let course of courses| search:name.value" title="{{course.name}}" summary="{{course.salary}} " id="{{course.id}}">
 </app-jumbotron>
-  
+  </div></div>  
  
 <table class="table">
   <thead>

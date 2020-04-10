@@ -3,8 +3,10 @@
 
 <div class="jumbotron">
   <div class="container" >
-    <h1 class="display-4">{{heading}}</h1>
-    <p class="lead">{{summary}}</p>
+    <h1 class="display-4">{{heading | uppercase}} - {{now | date:'yyyy/MM'}}</h1>
+    <p class="lead">{{summary |currency:'CAD':'symbol-narrow':'3.3-4'}}</p>
+    <br>
+    <p>{{sentence | titlecase}}</p>
     <app-badge count="1"></app-badge><br>
     <button type="button" class="btn btn-warning" (click)="deleteJumbo(id)">Delete</button>
   </div>

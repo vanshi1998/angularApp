@@ -20,7 +20,10 @@ export class JumbotronComponent implements OnInit {
 
   @Input('title') heading:string=""
   @Input('summary') summary:string=""
-  @Input('id') id:number=null;
+  now:Date=new Date();
+    @Input('id') id:number=null;
+
+    @Input('sentence') sentence:string="hello i am jumbotron";
 
   ngOnInit(): void {
   }
