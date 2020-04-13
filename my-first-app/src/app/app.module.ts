@@ -10,10 +10,13 @@ import { BadgeComponent } from './components/badge/badge.component';
 import { EmptableComponent } from './components/emptable/emptable.component';
 import { SentenceCasePipePipe } from './pipes/sentence-case-pipe.pipe';
 import { SearchPipe } from './pipes/search.pipe';
+import { First3EmployeesComponent } from './components/first3-employees/first3-employees.component';
+import { CountryComponent } from './components/country/country.component';
+import { CityComponent } from './components/country/city/city.component';
 
 @NgModule({
   declarations: [
-    AppComponent,MessageComponent, JumbotronComponent, BadgeComponent, EmptableComponent, SentenceCasePipePipe, SearchPipe
+    AppComponent,MessageComponent, JumbotronComponent, BadgeComponent, EmptableComponent, SentenceCasePipePipe, SearchPipe, First3EmployeesComponent, CountryComponent, CityComponent
   ],
   imports: [
     BrowserModule,HttpClientModule

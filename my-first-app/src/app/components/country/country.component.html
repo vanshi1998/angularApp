@@ -1,0 +1,13 @@
+<!--<p>country works!</p>-->
+<h2>Country component</h2>
+<div class="input-group input-group-sm mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-sm">   Country</span>
+  </div>
+  <input type="text" #name (keyup)="0" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+</div>
+<p>{{city}}</p>
+
+<hr/>
+
+<app-city con={{name.value}} (loaded)="handleLoadedEvent($event)"></app-city>

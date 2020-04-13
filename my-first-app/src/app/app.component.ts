@@ -21,11 +21,17 @@ export class AppComponent implements OnInit{
     //this.http.get('http://localhost:8000/api/employee').toPromise()
     this.courseService.fetchAllCourses()
     .then((res: any) =>{
+      console.log("Emloyees are")
       console.log(res);
       this.courses=res;
+      this.first3=this.courses.slice(0,3);
+      console.log("First three")
+      console.log(this.first3);
     })
 
   }
     title = 'my-first-app';
    courses: Array<any> = []
+   first3:  Array<any>=[]
+
 }
