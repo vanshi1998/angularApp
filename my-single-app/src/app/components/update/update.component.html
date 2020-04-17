@@ -1,0 +1,20 @@
+
+<h2>Update Employee</h2>
+<div *ngIf="showMessage" class="alert alert-success" role="alert">
+  Employee successfully updated!!!
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">Fetch Name</span>
+  </div>
+  <input type="text" #name class="form-control" placeholder="Enter name to be fetched" aria-label="Name" aria-describedby="basic-addon1">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">Salary</span>
+  </div>
+  <input type="number" #salary class="form-control" placeholder="Enter updated salary" aria-label="Salary" aria-describedby="basic-addon1">
+</div>
+<button type="button" class="btn btn-primary" (click)="updateEmployee(name.value,salary.value)">Update Employee</button>

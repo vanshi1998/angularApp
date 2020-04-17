@@ -1,0 +1,20 @@
+<h2>View Employee</h2>
+<div *ngIf="showMessage" class="alert alert-success" role="alert">
+  Employee successfully deleted!!!
+</div>
+<div class="container">
+  <div class="row">
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let employee of employees">{{employee.id}} {{employee.name}} - {{employee.salary}}
+<button type="button" (click)="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button>
+<button type="button" (click)="editEmployee(employee)" class="btn btn-primary">Edit</button>
+  </li>
+  
+</ul>
+  </div>
+</div>
+<hr/>
+<input type="text" #logMessage placeholder="Enter log message"/>
+<button (click)="log(logMessage.value)">Log Message</button>
+<hr/>
+<p *ngFor="let message of logService.logs">{{message}}</p>

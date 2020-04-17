@@ -33,7 +33,7 @@ export class JumbotronComponent implements OnInit {
     console.log("Deleting the jumbotron with id",id);
     //this.http.delete('http://localhost:8000/api/employee/' + id).toPromise()
     this.courseService.deleteCourse(id)
-    .then(res=>console.log(res))
+    .subscribe(res=>console.log(res))
   }
 
 }

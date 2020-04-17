@@ -20,7 +20,7 @@ export class AppComponent implements OnInit{
     //initialization code here
     //this.http.get('http://localhost:8000/api/employee').toPromise()
     this.courseService.fetchAllCourses()
-    .then((res: any) =>{
+    .subscribe((res: any) =>{
       console.log("Emloyees are")
       console.log(res);
       this.courses=res;

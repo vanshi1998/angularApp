@@ -1,0 +1,11 @@
+<h2>View All Quizes</h2>
+<div class="container">
+  <div class="row">
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let quiz of quizes">{{quiz.name}}
+      <button type="button" (click)="getQuiz(quiz)" class="btn btn-primary">Start Quiz</button>
+</li>
+  
+</ul>
+  </div>
+</div>

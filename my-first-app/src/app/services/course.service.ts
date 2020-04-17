@@ -11,11 +11,13 @@ export class CourseService {
   constructor(public http:HttpClient) { }
 
  fetchAllCourses(){
-    return this.http.get(baseUrl).toPromise()
+    //return this.http.get(baseUrl).toPromise()
+    return this.http.get(baseUrl)
   }
 
   deleteCourse(id: number){
-    return this.http.delete(baseUrl + id).toPromise()
+    //return this.http.delete(baseUrl + id).toPromise()
+    return this.http.delete(baseUrl + id)
   }
 
 

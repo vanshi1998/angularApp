@@ -1,0 +1,40 @@
+<h2 *ngIf="!editMode">Add Employee</h2>
+<h2 *ngIf="editMode">Update Employee</h2>
+<div *ngIf="showMessage" class="alert alert-success" role="alert">
+  Employee successfully added!!!
+</div>
+<div *ngIf="showMsg" class="alert alert-success" role="alert">
+  Employee successfully updated!!!
+</div>
+<div [formGroup]="myForm">
+
+  <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">Id</span>
+  </div>
+  <input type="number" formControlName="id" class="form-control" placeholder="Enter the id" aria-label="Id" aria-describedby="basic-addon1">
+  
+</div>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">Name</span>
+  </div>
+  <input type="text" formControlName="name" class="form-control" placeholder="Enter the name" aria-label="Name" aria-describedby="basic-addon1">
+  <span *ngIf="myForm.controls['name'].invalid && (myForm.controls['name'].dirty || myForm.controls['name'].touched)" class="alert alert-danger">Name is missing!!</span>
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">Salary</span>
+  </div>
+  <input type="number" formControlName="salary" class="form-control" placeholder="Enter the salary" aria-label="Salary" aria-describedby="basic-addon1">
+  
+</div>
+<button type="button" *ngIf="!editMode" [disabled]="myForm.invalid" class="btn btn-primary" (click)="addEmployee()">Add Employee</button>
+<button type="button" *ngIf="editMode"[disabled]="myForm.invalid" class="btn btn-primary" (click)="updateEmp()">Update Employee</button>
+
+<hr/>
+<input type="text" #logMessage placeholder="Enter log message"/>
+<button (click)="log(logMessage.value)">Log Message</button>
+<hr/>
+<p *ngFor="let message of logService.logs">{{message}}</p>
