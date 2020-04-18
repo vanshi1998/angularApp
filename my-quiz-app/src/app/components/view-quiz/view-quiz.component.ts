@@ -24,7 +24,7 @@ quizes:Array<Quiz>
 
 getQuiz(quiz:Quiz)
 {
-this.router.navigate(['viewquestion',quiz])
+this.router.navigate(['viewquestion',{name:quiz.name}])
 
 }
 }
