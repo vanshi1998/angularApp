@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-const baseUrl = 'http://localhost:8088/api/quiz/';
+const baseUrl = 'http://localhost:8000/api/quiz/';
 @Injectable({
   providedIn: 'root'
 })
 export class QuizService {
 
-
+  res:number=0;
   constructor(private http:HttpClient) { }
 
   fetchQuizes()

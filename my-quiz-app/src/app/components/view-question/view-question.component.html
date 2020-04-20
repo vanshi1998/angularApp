@@ -17,21 +17,26 @@
     
 <div class="card" style="width: 50rem;">
   <div class="card-body">
-    <h5 class="card-title"> Q{{quesNumber}} {{currentQuestion.title}}</h5>
-    <p class="card-text" *ngFor="let option of currentQuestion.choices">
-     &nbsp; &nbsp; <input class="form-check-input" type="radio" name="exampleRadios">
-  <label class="form-check-label" for="exampleRadios1">
+    <h5 class="card-title"> Q{{quesNumber}} {{currentQuestion.text}}</h5>
+    <p class="card-text" *ngFor="let option of currentQuestion.choices; let i=index">
+     &nbsp; &nbsp; 
+<!--<input class="form-check-input" type="radio" name="exampleRadios">-->
+
+<input id="{{option.id}}" type="radio" (click)="onSelect(option)" />
+  <label>
     {{option.text}}
   </label>
       
       </p>
-    <button type="button" *ngIf="!isFirst" class="btn btn-primary" (click)="getPreviousQuestion()">Previous Question</button>
+    <button type="button" *ngIf="index > 0" class="btn btn-primary" (click)="getPreviousQuestion()">Previous Question</button>
     &nbsp; &nbsp; &nbsp;
-    <button type="button" *ngIf="!isLast" class="btn btn-primary" (click)="getNextQuestion()">Next Question</button>
-    <button type="button" *ngIf="isLast" class="btn btn-primary">Finish Quiz</button>
+    <button type="button" *ngIf="index < (noOfQues-1)" class="btn btn-primary" (click)="getNextQuestion()">Next Question</button>
+    &nbsp; &nbsp; &nbsp;
+    <button type="button" class="btn btn-primary">Submit</button>
+  </div>
   </div>
 </div>
-  </div>
+ 
 </div>
 
 

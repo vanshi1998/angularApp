@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { QuizService } from "src/app/services/quiz.service";
 import { Router } from '@angular/router';
 import { Question } from "src/app/models/Question";
+
+import { Choice } from "src/app/models/Choice";
 @Component({
   selector: 'app-view-question',
   templateUrl: './view-question.component.html',
@@ -10,7 +12,11 @@ import { Question } from "src/app/models/Question";
 })
 export class ViewQuestionComponent implements OnInit {
 
-  constructor(public quizService:QuizService,private route: ActivatedRoute,private router: Router) { }
+  constructor(public quizService:QuizService,private route: ActivatedRoute,private router: Router) { 
+    
+
+
+  }
 
 quizName:string;
 questions:Array<Question>;
@@ -18,8 +24,10 @@ currentQuestion:Question;
 index:number;
 quesNumber:number;
 noOfQues:number;
-isLast:boolean=false;
-isFirst:boolean=false;
+userAnswer:Choice;
+userInput:Array<any>;
+
+
 //tryQuestion:Array<any>;
 
   ngOnInit(): void {
@@ -43,13 +51,9 @@ this.quizService.fetchSingleQuiz(this.quizName)
        this.index = this.questions.indexOf(this.currentQuestion);
     this.quesNumber=this.index+1;
     console.log("Index=",this.index);
-    this.isFirst=true;
     this.noOfQues=this.questions.length;
 console.log("Number of question in this quiz=",this.noOfQues);
-if(this.noOfQues==1)
-{
-  this.isLast=true;
-}
+
     })
    
 
@@ -58,7 +62,7 @@ if(this.noOfQues==1)
 
   getNextQuestion()
   {
-    this.isFirst=false;
+    
     console.log("Next question called");
     this.currentQuestion=this.questions[this.index+1];
     console.log("Changed question=",this.currentQuestion);
@@ -67,20 +71,14 @@ if(this.noOfQues==1)
     this.quesNumber=this.index+1;
     console.log("Changed question number=",this.quesNumber);
     this.router.navigate(['viewquestion'])
-    if(this.index==(this.noOfQues-1))
-    {
-      this.isLast=true;
-    }
+    
   }
 
 getPreviousQuestion()
   {
-    if(this.index==0)
-    {
-     
-    }
-    else{
-      this.isLast=false;
+    
+    
+      
    console.log("Previous question called");
     this.currentQuestion=this.questions[this.index-1];
     console.log("Changed question=",this.currentQuestion);
@@ -90,13 +88,13 @@ getPreviousQuestion()
     console.log("Changes question number=",this.quesNumber);
     console.log("Current Question=",this.currentQuestion);
     this.router.navigate(['viewquestion'])
-    if(this.index==0)
-    {
-      this.isFirst=true;
-    }
-    }
+    
 
   }
 
+   onSelect(option:Choice)
+   {
+    //this.userInput.push(option.isAnswer);
+   }
 
 }
