@@ -15,7 +15,7 @@ showMessage:boolean=false;
 showMsg:boolean=false;
 editMode:boolean=false;
 myForm: FormGroup;
-  constructor(private employeeService:EmployeeService,private route: ActivatedRoute,private logService:LogService) {
+  constructor(private employeeService:EmployeeService,private route: ActivatedRoute,public logService:LogService) {
 
     this.myForm=new FormGroup(
       {

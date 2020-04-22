@@ -1,4 +1,4 @@
-<h2>{{quizName}} </h2>
+
 <!--<div class="container">
   <div class="row">
 <div class="card" style="width: 50rem;" *ngFor="let question of questions">
@@ -11,32 +11,41 @@
   </div>
 </div>
 -->
+<div class="comp">
+<h2 style="margin-left:120px;margin-bottom:30px"><span style="color:yellow;margin-left:50px;"> {{quizName}} </span>
+<button type="button" class="btn btn-light" (click)="goToHome()" style="margin-left:600px"> Home</button> </h2>
 
 <div class="container">
   <div class="row">
     
-<div class="card" style="width: 50rem;">
+<div class="card" style="width: 60rem;">
+  
   <div class="card-body">
-    <h5 class="card-title"> Q{{quesNumber}} {{currentQuestion.text}}</h5>
-    <p class="card-text" *ngFor="let option of currentQuestion.choices; let i=index">
-     &nbsp; &nbsp; 
-<!--<input class="form-check-input" type="radio" name="exampleRadios">-->
 
-<input id="{{option.id}}" type="radio" (click)="onSelect(option)" />
+    <h5 class="card-title" style="text-align:center"> Q{{quesNumber}} {{currentQuestion.text}}</h5>
+    <p class="card-text" *ngFor="let option of currentQuestion.choices" style="margin-left:220px">
+     &nbsp; &nbsp; 
+<input type="radio" name="option" (click)="onSelect(option)" >
+
+<!--<input id="{{option.id}}" type="radio" (change)="onSelect(option)" />-->
   <label>
+    <b>
     {{option.text}}
+    </b>
   </label>
       
       </p>
+      <div class="btn">
     <button type="button" *ngIf="index > 0" class="btn btn-primary" (click)="getPreviousQuestion()">Previous Question</button>
-    &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
     <button type="button" *ngIf="index < (noOfQues-1)" class="btn btn-primary" (click)="getNextQuestion()">Next Question</button>
-    &nbsp; &nbsp; &nbsp;
-    <button type="button" class="btn btn-primary">Submit</button>
+    &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+    <button type="button" class="btn btn-primary" (click)="viewResult()">Submit</button>
+      </div>
   </div>
   </div>
 </div>
  
 </div>
 
-
+</div>

@@ -11,8 +11,9 @@ import { Choice } from "src/app/models/Choice";
   styleUrls: ['./view-question.component.css']
 })
 export class ViewQuestionComponent implements OnInit {
+  len: any;
 
-  constructor(public quizService:QuizService,private route: ActivatedRoute,private router: Router) { 
+  constructor(public quizService:QuizService,private route: ActivatedRoute,private router: Router) {
     
 
 
@@ -24,9 +25,9 @@ currentQuestion:Question;
 index:number;
 quesNumber:number;
 noOfQues:number;
-userAnswer:Choice;
-userInput:Array<any>;
-
+userAnswer:Array<any>=[];
+userInput:Array<any>=[];
+correctAnswer:Array<any>=[];
 
 //tryQuestion:Array<any>;
 
@@ -57,12 +58,11 @@ console.log("Number of question in this quiz=",this.noOfQues);
     })
    
 
-
   }
 
   getNextQuestion()
   {
-    
+    this.loadCorrect();
     console.log("Next question called");
     this.currentQuestion=this.questions[this.index+1];
     console.log("Changed question=",this.currentQuestion);
@@ -70,7 +70,7 @@ console.log("Number of question in this quiz=",this.noOfQues);
     console.log("Changed index=",this.index);
     this.quesNumber=this.index+1;
     console.log("Changed question number=",this.quesNumber);
-    this.router.navigate(['viewquestion'])
+    this.router.navigate(['viewquestion',this.quizName])
     
   }
 
@@ -78,7 +78,7 @@ getPreviousQuestion()
   {
     
     
-      
+     this.loadCorrect(); 
    console.log("Previous question called");
     this.currentQuestion=this.questions[this.index-1];
     console.log("Changed question=",this.currentQuestion);
@@ -87,14 +87,59 @@ getPreviousQuestion()
     this.quesNumber=this.index+1;
     console.log("Changes question number=",this.quesNumber);
     console.log("Current Question=",this.currentQuestion);
-    this.router.navigate(['viewquestion'])
+    this.router.navigate(['viewquestion',this.quizName])
     
 
   }
 
    onSelect(option:Choice)
    {
-    //this.userInput.push(option.isAnswer);
+     this.userAnswer[this.index]=option.isAnswer;
+     this.userInput[this.index]=option.text;
+     console.log(this.userAnswer);
+     console.log(this.userInput);
+     
+    
    }
+
+   loadCorrect()
+   {
+     for (let option of this.currentQuestion.choices )
+    {
+      if(option.isAnswer==true)
+      {
+        this.correctAnswer[this.index]=option.text;
+      }
+    }
+    console.log("Correct answers are",this.correctAnswer);
+
+   }
+   viewResult()
+     {
+       this.loadCorrect();
+       this.userAnswer.forEach(i => {
+      if (i == true) {
+        this.quizService.res++;
+      }
+    });
+
+    this.len=this.userAnswer.length;
+    if(this.len<this.noOfQues)
+    {
+      for(let i=this.len;i<this.noOfQues;i++)
+    {
+      this.userAnswer[i]="";
+      this.userInput[i]="";
+    }
+    }
+    console.log(this.quizService.res);
+
+    this.router.navigate(['viewresult',{userAnswer:this.userAnswer,userText:this.userInput,correctAnswer:this.correctAnswer,noOfQuestions:this.noOfQues}]);
+
+     }
+  goToHome()
+  {
+    this.router.navigate(['viewquiz']);
+  }
 
 }

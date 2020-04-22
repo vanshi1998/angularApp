@@ -1,0 +1,32 @@
+<!--<p *ngFor="let item of arrayOne(noOfQuestions)">
+    
+</p>
+-->
+<div class="res">
+<h2 style="margin-left:200px"> Quiz Completed!!! Your Score is {{quizService.res}} out of {{noOfQuestions}} !!
+    <button type="button" class="btn btn-dark" (click)="goToHome()" style="margin-left:120px"> Home</button>
+      </h2>  
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-12" style="margin-left:'190px'">
+<ul class="list-group" *ngFor="let item of arrayOne(noOfQuestions); let i=index;">
+    
+    <li class="list-group-item">
+        <span>Q{{i+1}})</span>
+<div class="alert alert-success" role="alert" *ngIf="userText[i]===correctAnswer[i]" >
+  You answered this question correctly!!!
+</div>
+<div class="alert alert-info" role="alert" *ngIf="userText[i]==''">
+ You did not answer this question!!!
+</div>
+<div class="alert alert-danger" role="alert" *ngIf="userText[i]!=correctAnswer[i] && userText[i]!=''">
+You answered this question wrong!!!
+</div>
+<b>
+<p> Your answer:- <span style="color:purple">{{userText[i]}}</span></p>
+    <p>Correct Answer:- <span style="color:green">{{correctAnswer[i]}}</span></p>
+    </b>
+    </li>
+    </ul>
+    </div>
+</div>
+</div>

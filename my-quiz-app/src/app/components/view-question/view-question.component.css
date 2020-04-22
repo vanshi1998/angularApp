@@ -1,0 +1,22 @@
+.card-body
+{
+    
+    background-image: url('https://thumbs.dreamstime.com/z/yellow-textured-plain-background-wallpaper-design-use-text-image-yellow-textured-plain-background-wallpaper-137515345.jpg');
+  
+     background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  
+}
+
+.btn
+{
+    margin-left: 70px;
+}
+.comp
+{
+   background-color: rosybrown;
+     background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}

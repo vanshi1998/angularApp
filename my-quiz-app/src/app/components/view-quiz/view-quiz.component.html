@@ -1,11 +1,27 @@
-<h2>View All Quizes</h2>
-<div class="container">
-  <div class="row">
-<ul class="list-group">
-  <li class="list-group-item" *ngFor="let quiz of quizes">{{quiz.name}}
-      <button type="button" (click)="getQuiz(quiz)" class="btn btn-primary">Start Quiz</button>
-</li>
-  
-</ul>
-  </div>
+<div class="bg-img">
+  <div class="whole">
+<h2>Quizes available</h2>
+<div class="row">
+    <div class="col-lg-4 col-lg-offset-4" style="margin-left:'500px'">
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label><b>Search quiz</b></mat-label>
+    <input matInput #name>
+  </mat-form-field>
+</form>
 </div>
+</div>
+<div id="quiz">
+<mat-card *ngFor="let quiz of quizes | search:name.value" style="margin-top:40px;margin-right:30px;margin-left:30px;">
+  <mat-card-header>
+        <mat-card-title>{{quiz.name}}</mat-card-title>
+</mat-card-header>
+<mat-card-actions>
+  <button type="button" (click)="getQuiz(quiz)" class="btn btn-primary">Start Quiz
+  </button>
+  </mat-card-actions>
+</mat-card>
+<br>
+ </div>
+  </div>
+  </div>

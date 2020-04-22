@@ -20,6 +20,8 @@ quizes:Array<Quiz>
       console.log(res);
       this.quizes = res;
     })
+
+    this.quizService.res=0;
   }
 
 getQuiz(quiz:Quiz)

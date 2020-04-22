@@ -11,7 +11,7 @@ import { LogService } from "src/app/services/log.service";
 })
 export class ViewComponent implements OnInit {
 
-  constructor(private employeeService:EmployeeService,private router: Router,private logService:LogService) { }
+  constructor(private employeeService:EmployeeService,private router: Router,public logService:LogService) { }
 employees:Array<any>
 showMessage:boolean=false;
   ngOnInit(): void {

@@ -1,3 +1,62 @@
+h2,mat-card-header,mat-card-actions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.whole
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 h2{
-    align-content: center;
+    margin-bottom: 50px;
+    color:red;
+}
+b{
+    font-size: 20px;
+}
+#quiz
+{
+    display: flex;
+    flex-direction: row;
+    
+}
+mat-card
+{
+    height: 150px;
+    width: 400px;
+}
+.button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+/*.input-group mb-3
+{
+    margin-left: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}*/
+/*body
+{
+    background-image: url("https://image.shutterstock.com/image-vector/geometric-low-poly-question-quiz-260nw-200928617.jpg");
+}*/
+.bg-img
+{
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT75UmBaBgp6JJgmsZUvD7E7D47fUI5a1m-QPAO2jRjydbduVHq&usqp=CAU');
+     background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
 }

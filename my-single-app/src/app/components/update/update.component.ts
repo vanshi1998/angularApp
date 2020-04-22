@@ -17,11 +17,11 @@ showMessage:boolean=false;
   {
 this.employeeService.updateEmployee(name,salary)
 .subscribe(res=>{
-  console.log(res)
-      if(res.status == 200){
+  console.log(res);
+      /*if(res.status == 200){
         this.showMessage = true;
         console.log("Message",this.showMessage);
-      }
+      }*/
     });
   }
 }
